@@ -1,0 +1,7 @@
+/* app/assets/css/main.css */
+@import "tailwindcss";
+
+@theme {
+  --color-accent: oklch(0.62 0.19 265);
+  --font-display: "Instrument Sans", sans-serif;
+}
