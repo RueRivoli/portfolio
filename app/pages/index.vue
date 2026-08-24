@@ -4,6 +4,7 @@
   <div class="w-full">
     <NavBar></NavBar>
     <Header></Header>
+    <Experiences></Experiences>
   </div>
 </template>
 
