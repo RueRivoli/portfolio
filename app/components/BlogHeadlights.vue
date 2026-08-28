@@ -9,6 +9,7 @@ const { data: posts } = await useAsyncData("home-latest-posts", () =>
   queryCollection("content")
     .where("path", "LIKE", "/%")
     .order("date", "DESC")
+    .limit(3)
     .select("title", "description", "date", "path")
     .all(),
 );
@@ -29,7 +30,7 @@ defineComponent({
 <template>
   <div class="mt-10 w-full flex justify-center gap-20">
     <div style="width: 70vw">
-      <h2 class="text-3xl mb-2">Articles</h2>
+      <h2 class="text-3xl mb-2">Derniers articles de Blog</h2>
       <!-- <ContentRenderer v-if="home" :value="home" /> -->
 
       <div class="grid grid-cols-3 gap-3">

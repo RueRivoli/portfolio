@@ -27,12 +27,13 @@ defineComponent({
 </script>
 
 <template>
+  <NavBar></NavBar>
   <div class="mt-10 w-full flex justify-center gap-20">
     <div style="width: 70vw">
       <h2 class="text-3xl mb-2">Articles</h2>
       <!-- <ContentRenderer v-if="home" :value="home" /> -->
 
-      <div class="grid grid-cols-3 gap-3">
+      <div class="flex gap-2">
         <div
           class="p-2 border-1 rounded-lg"
           v-for="post in posts"

@@ -11,7 +11,20 @@ const experiences = ref([
     role: "Vue.js Instructor",
     location: "Saint-Herblain, France",
     startDate: "2025-12-01",
-    techStack: ["Vue.js", "Typescript"],
+    techStack: [
+      {
+        logo: "vue.webp",
+        displayName: "Vue.js",
+      },
+      {
+        logo: "vuex.png",
+        displayName: "Vuex",
+      },
+      {
+        logo: "ts.webp",
+        displayName: "TypeScript",
+      },
+    ],
   },
   {
     achievements: [
@@ -24,22 +37,59 @@ const experiences = ref([
       "Develop a visualisation component for the build chamber fill rate",
     ],
     company: "3YOURMIND",
-    endDate: "2026-11-01",
+    endDate: "2025-11-01",
     role: "Web Developer",
     location: "Berlin, Germany",
     startDate: "2021-02-01",
     techStack: [
-      "Vue.js",
-      "Vuex",
-      "XState",
-      "Vue Router",
-      "Three.js",
-      "Kotti-ui",
-      "Element-UI",
-      "CSS",
-      "ESLint",
-      "Prettier",
-      "Typescript",
+      {
+        logo: "vue.webp",
+        displayName: "Vue.js",
+      },
+      {
+        logo: "vuex.png",
+        displayName: "Vuex",
+      },
+      {
+        logo: "ts.webp",
+        displayName: "TypeScript",
+      },
+      {
+        logo: "xstate.webp",
+        displayName: "XState",
+      },
+      {
+        logo: "threejs.webp",
+        displayName: "Three.js",
+      },
+      {
+        logo: "3YD.webp",
+        displayName: "Kotti-ui",
+      },
+      {
+        logo: "jest.webp",
+        displayName: "Jest",
+      },
+      {
+        logo: "cypress.svg",
+        displayName: "Cypress",
+      },
+      {
+        logo: "django.webp",
+        displayName: "Django",
+      },
+      {
+        logo: "python.webp",
+        displayName: "Python",
+      },
+      {
+        logo: "docker.png",
+        displayName: "Docker",
+      },
+      {
+        logo: "git.webp",
+        displayName: "Git",
+      },
     ],
   },
   {
@@ -53,20 +103,29 @@ const experiences = ref([
     role: "Frontend Engineer",
     location: "Paris, France",
     startDate: "2018-04-01",
-    techStack: ["Vue.js", "CakePHP"],
+    techStack: [
+      {
+        logo: "vue.png",
+        displayName: "Vue.js",
+      },
+      {
+        logo: "vuex.png",
+        displayName: "Vuex",
+      },
+      {
+        logo: "ts.webp",
+        displayName: "TypeScript",
+      },
+      {
+        logo: "cakephp.jpg",
+        displayName: "CakePHP",
+      },
+    ],
   },
 ]);
 
-const Experiences = defineComponent({
-  props: {
-    achievements: { type: Array<String>, default: [] },
-    company: { type: String, default: "" },
-    endDate: { type: String, default: "" },
-    location: { type: String, default: "" },
-    startDate: { type: String, default: "" },
-    role: { type: String, default: "" },
-    techStack: { type: Array<String>, default: [] },
-  },
+defineComponent({
+  props: {},
   setup(props, { slots }) {
     return {
       experiences: experiences,
@@ -76,8 +135,9 @@ const Experiences = defineComponent({
 </script>
 
 <template>
-  <div class="mt-10 w-full flex justify-center gap-20">
+  <div id="experiences" class="mt-10 w-full flex justify-center gap-20">
     <div style="width: 70vw">
+      <h2 class="text-3xl mb-4">Experiences</h2>
       <Experience
         v-for="(exp, index) in experiences"
         :key="index"

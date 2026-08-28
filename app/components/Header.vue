@@ -25,7 +25,7 @@
         <FontAwesomeIcon :icon="['fab', 'github']" style="font-size: 25px" />
         <FontAwesomeIcon :icon="['fab', 'linkedin']" style="font-size: 25px" />
         <FontAwesomeIcon :icon="['fab', 'bluesky']" style="font-size: 25px" />
-        <FontAwesomeIcon :icon="['fab', 'x-twitter']" style="font-size: 25px" />
+        <!-- <FontAwesomeIcon :icon="['fab', 'x-twitter']" style="font-size: 25px" /> -->
       </div>
     </div>
   </div>

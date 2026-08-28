@@ -39,9 +39,9 @@ defineComponent({
 </script>
 
 <template>
-  <div class="mt-10 w-full flex justify-center gap-20">
+  <div id="education" class="mt-10 w-full flex justify-center gap-20">
     <div style="width: 70vw">
-      <h2 class="text-3xl mb-2">Education</h2>
+      <h2 class="text-3xl mb-4">Education</h2>
       <EducationLine
         v-for="(st, index) in education"
         :key="index"
