@@ -18,9 +18,9 @@ defineProps<{
 </script>
 
 <template>
-  <div class="bg-zinc-200 px-2 py-1 flex border-1 rounded-lg">
-    <NuxtImg v-if="logo" :src="`/logos/${logo}`" width="30" height="30" />
-    <span class="m-auto ml-2 font-medium">{{ displayName }}</span>
+  <div class="bg-zinc-200 px-1 py-1 flex border-1 rounded-lg">
+    <NuxtImg v-if="logo" :src="`/logos/${logo}`" width="25" height="25" />
+    <span class="m-auto ml-1 font-medium">{{ displayName }}</span>
   </div>
 </template>
 

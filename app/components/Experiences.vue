@@ -105,7 +105,7 @@ const experiences = ref([
     startDate: "2018-04-01",
     techStack: [
       {
-        logo: "vue.png",
+        logo: "vue.webp",
         displayName: "Vue.js",
       },
       {
