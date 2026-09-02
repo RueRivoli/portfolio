@@ -1,34 +1,65 @@
-<script></script>
+<script setup lang="ts">
+// TODO: replace with your real profile URLs — these are intentionally left blank
+// rather than guessed, so no icon points at someone else's account.
+const socials = [
+  { label: "GitHub", icon: ["fab", "github"], href: "" },
+  { label: "LinkedIn", icon: ["fab", "linkedin"], href: "" },
+  { label: "Bluesky", icon: ["fab", "bluesky"], href: "" },
+];
+</script>
 
 <template>
-  <div class="flex justify-center gap-20">
-    <div class="">
+  <section class="container-page pt-16 pb-4">
+    <div class="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-10">
       <img
-        class="border rounded-3xl"
+        class="size-28 shrink-0 rounded-full object-cover"
         src="/identity-photo.jpeg"
-        width="200"
-        height="200"
-        alt=""
+        width="112"
+        height="112"
+        alt="Florent Gallois"
       />
-    </div>
-    <div class="flex flex-col justify-around">
-      <div>
-        <h2 class="text-4xl">Florent Gallois</h2>
-        <h3 class="mt-2">Frontend Engineer Vue.js, Nuxt</h3>
-        <a href="https://calendly.com/florent-gallois">Book a Call</a>
-        <a class="ml-4" href="https://calendly.com/florent-gallois"
-          >Download CV</a
-        >
-      </div>
 
-      <div id="social-networks" class="flex justify-around">
-        <FontAwesomeIcon :icon="['fab', 'github']" style="font-size: 25px" />
-        <FontAwesomeIcon :icon="['fab', 'linkedin']" style="font-size: 25px" />
-        <FontAwesomeIcon :icon="['fab', 'bluesky']" style="font-size: 25px" />
-        <!-- <FontAwesomeIcon :icon="['fab', 'x-twitter']" style="font-size: 25px" /> -->
+      <div class="space-y-5">
+        <div class="space-y-1.5">
+          <h1 class="text-4xl font-medium tracking-tight text-ink sm:text-5xl">
+            Florent Gallois
+          </h1>
+          <p class="text-body">Frontend Engineer · Vue.js, Nuxt</p>
+          <p class="text-sm text-meta">Paris, France</p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+          <a
+            class="rounded-full bg-brand-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-700"
+            href="https://calendly.com/florent-gallois"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book a call
+          </a>
+          <a
+            class="text-sm text-body underline decoration-rule underline-offset-4 transition-colors hover:text-link"
+            href="/cv.pdf"
+            download
+          >
+            Download CV
+          </a>
+        </div>
+
+        <div class="flex items-center gap-5">
+          <a
+            v-for="social in socials"
+            :key="social.label"
+            :href="social.href"
+            :aria-label="social.label"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-meta transition-colors hover:text-link"
+          >
+            <FontAwesomeIcon :icon="social.icon" style="font-size: 20px" />
+          </a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
-
-<style></style>

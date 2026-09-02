@@ -6,54 +6,47 @@ interface Experience {
   location?: string;
   startDate?: string;
   role?: string;
-  techStack?: Array<{ logo: String; displayName: String }>;
+  techStack?: Array<{ logo: string; displayName: string }>;
 }
 
 defineProps<{ experience: Experience }>();
 </script>
 
 <template>
-  <div class="">
-    <div>
-      <h2>
-        <FontAwesomeIcon :icon="['far', 'dot']" style="font-size: 15px" />
-        <span class="text-xl">{{ experience.role }}</span>
-      </h2>
-    </div>
-    <div class="p-4">
-      <div class="flex justify-between">
-        <h3>
-          <FontAwesomeIcon
-            class="mr-1"
-            :icon="['far', 'building']"
-            style="font-size: 15px"
-          />
-          <span>{{ experience.company }}</span>
-        </h3>
-        <div>
-          <h3>{{ experience.startDate }} - {{ experience.endDate }}</h3>
-        </div>
+  <article class="grid grid-cols-1 gap-2 py-8 md:grid-cols-[8rem_1fr] md:gap-8">
+    <p class="text-sm tabular-nums text-meta md:pt-1">
+      {{ formatDateRange(experience.startDate, experience.endDate) }}
+    </p>
+
+    <div class="space-y-3">
+      <div class="space-y-1">
+        <h3 class="text-lg font-medium text-ink">{{ experience.role }}</h3>
+        <p class="text-sm text-meta">
+          {{ experience.company
+          }}<template v-if="experience.location"> · {{ experience.location }}</template>
+        </p>
       </div>
-      <ul class="p-4">
+
+      <ul
+        v-if="experience.achievements?.length"
+        class="ml-4 list-disc space-y-1.5 text-[15px] leading-relaxed text-body marker:text-rule"
+      >
         <li v-for="(ac, index) in experience.achievements" :key="index">
           {{ ac }}
         </li>
       </ul>
-      <div class="flex flex-wrap gap-1 py-8 px-2">
-        <div v-for="(st, index) in experience.techStack" :key="index">
-          <Tag
-            class="mr-2"
-            :logo="st.logo"
-            :display-name="st.displayName"
-          ></Tag>
-        </div>
+
+      <div
+        v-if="experience.techStack?.length"
+        class="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1"
+      >
+        <Tag
+          v-for="(st, index) in experience.techStack"
+          :key="index"
+          :logo="st.logo"
+          :display-name="st.displayName"
+        />
       </div>
     </div>
-  </div>
+  </article>
 </template>
-
-<style scoped>
-ul {
-  list-style-type: circle;
-}
-</style>

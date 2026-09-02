@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
 
 const education = ref([
   {
@@ -28,28 +28,20 @@ const education = ref([
   },
 ]);
 
-defineComponent({
-  props: {},
-  setup(props, { slots }) {
-    return {
-      education,
-    };
-  },
-});
 </script>
 
 <template>
-  <div id="education" class="mt-10 w-full flex justify-center gap-20">
-    <div style="width: 70vw">
-      <h2 class="text-3xl mb-4">Education</h2>
+  <section id="education" class="container-page py-12">
+    <h2 class="text-xs font-medium tracking-[0.15em] text-meta uppercase">
+      Education
+    </h2>
+
+    <div class="mt-2 divide-y divide-rule">
       <EducationLine
         v-for="(st, index) in education"
         :key="index"
         :education="st"
-      >
-      </EducationLine>
+      />
     </div>
-  </div>
+  </section>
 </template>
-
-<style></style>

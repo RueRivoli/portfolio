@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
 
 const experiences = ref([
   {
@@ -123,29 +123,20 @@ const experiences = ref([
     ],
   },
 ]);
-
-defineComponent({
-  props: {},
-  setup(props, { slots }) {
-    return {
-      experiences: experiences,
-    };
-  },
-});
 </script>
 
 <template>
-  <div id="experiences" class="mt-10 w-full flex justify-center gap-20">
-    <div style="width: 70vw">
-      <h2 class="text-3xl mb-4">Experiences</h2>
+  <section id="experiences" class="container-page py-12">
+    <h2 class="text-xs font-medium tracking-[0.15em] text-meta uppercase">
+      Experiences
+    </h2>
+
+    <div class="mt-2 divide-y divide-rule">
       <Experience
         v-for="(exp, index) in experiences"
         :key="index"
         :experience="exp"
-      >
-      </Experience>
+      />
     </div>
-  </div>
+  </section>
 </template>
-
-<style></style>

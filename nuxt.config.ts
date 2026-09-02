@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "~/assets/css/main.css",
     "@fortawesome/fontawesome-svg-core/styles.css",
   ],
+  app: { head: { htmlAttrs: { lang: "en" } } },
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   vite: { plugins: [tailwindcss()] },

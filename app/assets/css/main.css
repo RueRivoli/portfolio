@@ -2,6 +2,67 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: oklch(0.62 0.19 265);
-  --font-display: "Instrument Sans", sans-serif;
+  /* Brand — blue, hue 265 (extends the original --color-accent) */
+  --color-brand-50: oklch(0.97 0.014 265);
+  --color-brand-100: oklch(0.932 0.032 265);
+  --color-brand-200: oklch(0.885 0.062 265);
+  --color-brand-300: oklch(0.809 0.105 265);
+  --color-brand-400: oklch(0.707 0.165 265);
+  --color-brand-500: oklch(0.62 0.19 265);
+  --color-brand-600: oklch(0.546 0.195 265);
+  --color-brand-700: oklch(0.488 0.17 265);
+  --color-brand-800: oklch(0.424 0.14 265);
+  --color-brand-900: oklch(0.379 0.11 265);
+  --color-brand-950: oklch(0.282 0.075 265);
+
+  /* Back-compat alias for the previous token */
+  --color-accent: var(--color-brand-500);
+
+  /* Semantic roles — flipped wholesale for dark mode in @layer base below,
+     so components never need a single dark: variant. */
+  --color-surface: var(--color-white);
+  --color-ink: var(--color-zinc-900);
+  --color-body: var(--color-zinc-700);
+  --color-meta: var(--color-zinc-500);
+  --color-rule: var(--color-zinc-200);
+  --color-link: var(--color-brand-600);
+
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  /* Literal font-family declaration so @nuxt/fonts sees the family and
+     provisions the @font-face rules. A var() indirection is not scanned. */
+  html {
+    font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-body);
+  }
+
+  /* Redefining the role tokens is the whole of dark mode. The `base` layer
+     comes after `theme`, so these win over the @theme defaults. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-surface: var(--color-zinc-950);
+      --color-ink: var(--color-zinc-100);
+      --color-body: var(--color-zinc-300);
+      --color-meta: var(--color-zinc-500);
+      --color-rule: var(--color-zinc-800);
+      --color-link: var(--color-brand-400);
+    }
+  }
+}
+
+/* The editorial measure — replaces `style="width: 70vw"` in every section. */
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 42rem;
+  padding-inline: 1.5rem;
 }
